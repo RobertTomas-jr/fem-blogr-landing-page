@@ -1,0 +1,11 @@
+//@use '../base' as *;
+
+@mixin transitioneaseinout {
+       transition: all 300ms ease-in-out;
+        
+}  
+
+@mixin widthheight {
+       width: 100%;
+       height: 100%;
+}

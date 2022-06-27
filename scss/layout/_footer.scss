@@ -1,0 +1,69 @@
+@use '../base' as *;
+@use '../abstracts' as *;
+
+.footer {
+    background-color: var(--verydarkBlackBlue);
+    
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 90px;
+    
+   
+    .footer-navigation {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 4.25em;
+        padding-bottom: 4.25em;
+        margin: auto;
+        width: min(1100px, 80%);
+        gap: 1em;
+        @include breakpoints(medium) {
+            flex-direction: row;
+           
+              
+           
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 1.75em;
+            @include breakpoints(medium) {
+                padding-right: 3em;
+            }
+        }
+        .footer-menu {
+            width: 25%;
+            height: 100%;
+            margin: auto;
+            @include breakpoints(medium) {
+                margin-top: 0;
+            }
+            @include breakpoints(large) {
+                padding-left: 5em;
+            }  
+            .footer-submenu {
+                text-align: center;
+                font-size: 1.1rem;
+                @include breakpoints(medium) {
+                    text-align: left;
+                    margin-top: 0;
+                }
+            }
+            .footer-link {
+                text-align: center;
+                padding: 0.3em 0;
+                font-size: 1.1rem;
+                font-weight: map-get($fontWeight, "light");
+                color: var(--grayishBlue);
+                display: block;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+                @include breakpoints(medium) {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}  

@@ -1,0 +1,18 @@
+//colors
+//primary
+:root {
+--lightRed: hsl(355, 100%, 66%);//CTA text
+--verylightRed: hsl(355, 100%, 74%);//CTA hover background
+--verydarkBlue: hsl(208, 49%, 24%);//headings
+
+//neutral
+--textColor: hsl(0, 0%, 100%);//text
+--bgwhiteColor: hsl(0, 0%, 100%);//background color
+--grayishBlue: hsl(240, 2%, 79%);//footer text
+--verydarkGrayishBlue: hsl(207, 13%, 34%);// body copy
+--verydarkBlackBlue: hsl(240, 10%, 16%);//footerbackground
+
+//Gradient background - Intro/CTA mobile nav
+--linearIntro: linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+--linearBody: linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+}

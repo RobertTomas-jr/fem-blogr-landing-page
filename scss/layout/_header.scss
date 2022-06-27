@@ -1,0 +1,261 @@
+@use '../base' as *;
+@use '../abstracts' as *;
+
+header {
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 6.25em;
+    background:  url('/images/bg-pattern-intro-mobile.svg'), var(--linearIntro);
+    background-repeat: no-repeat;
+    background-position: 35% 37%;
+    padding-bottom: 9em;
+    padding-top: 1.5em;
+    
+    .header-wrapper {
+        width: min(1100px, 100% - 2.5em);
+        height: 7.5em;//120px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2em;
+
+        .logo {
+            flex-basis: 10%;
+            cursor: pointer;
+        }
+        nav {
+            flex-basis: 90%;
+            height: 100%;
+            display: none;
+            @include breakpoints(medium) {
+                display: block;
+            }
+            .menu {
+                width: 90%;
+                height: auto;
+                position: absolute;
+                top: 7.5em;
+                left: 5%;
+                right: 5%;
+                padding-left: 0;
+                padding-block: 0.5em 2em;
+                z-index: 5;
+                background-color: var(--bgwhiteColor);
+                border-radius: 5px;
+                box-shadow: 0 10px 30px hsl(240, 2%, 79%);
+                display: block;
+                @include breakpoints(medium) {
+                    display: flex;
+                    gap: 1em;
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+                .menu-list {
+                    text-align: center;
+                    position: relative;
+                    margin-block: 1.5em;
+                  
+                    .sign-up {
+                        color: var(--textColor);
+                        background: var(--linearIntro);
+                        padding-inline: 2em;
+
+                        &:hover {
+                            color: var(--textColor);
+                            background-color: var(--verylightRed);
+                        }
+                        @include breakpoints(medium) {
+                            background: var(--bgwhiteColor);
+                            color: var(--lightRed);
+                        }
+                    }
+                    &:nth-child(4) {
+                        padding-block: 2em 0.875em;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            left: 10%;
+                            top: 0;
+                            width: 80%;
+                            height: 1px;
+                            background-color: var(--grayishBlue);
+                        }
+                        @include breakpoints(medium) {
+                            margin-left: auto;
+                            margin-right: 1em;
+                            padding-block: 0;
+
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                    .menu-link {
+                        cursor: pointer;
+                        font-size: 1.2rem;
+                        text-align: center;
+                        color: var(--verydarkBlue);
+                        
+                        &:last-child:hover {
+                            text-decoration: none;
+                        }
+                        @include breakpoints(medium) {
+                            color:  var(--textColor);
+                            opacity: 0.6;
+                        }
+                    }
+                    &:hover .submenu-list {
+                        display: block;
+                    }
+                    &:hover {
+                        .menu-link {
+                            opacity: 0.5;
+
+                            .arrow-dark {
+                                transform: rotateX(180deg);
+                                transition: transform 100ms  ease-in-out;
+                            }
+                        }
+                        @include breakpoints(medium) {
+                            .arrow-light{
+                                transform: rotateX(180deg);
+                                transition: transform 100ms  ease-in-out;
+                            }
+                            .menu-link {
+                                opacity: 1;
+                            }
+                        }
+                    } 
+                    .arrow-light {
+                        padding-left: 0.25em;
+                        width: 15px;
+                        height: 10px;
+                        opacity: 0;
+                        @include breakpoints(medium) {
+                            opacity: 1;
+                        }
+                    }
+                    .submenu-list {
+                        width: 100%;
+                        height: auto;
+                        position: relative;
+                        left:  50%;
+                        top: 0;
+                        transform: translateX(-50%);
+                        display: none;
+                        z-index: 99;
+                        @include breakpoints(medium) {
+                            position: absolute;
+                            top: 100%;
+                            transform: translateX(0);
+                            left: -20px;
+                            text-align: left;
+                        }
+                        .sub-menu {
+                            width: 80%;
+                            height: auto;
+                            margin: auto;
+                            margin-top: 1em;
+                            padding-block: 1em;
+                            background-color: hsl(240, 2%, 93%);
+                            border-radius: 5px;
+                            padding-left: 0;
+                            @include breakpoints(medium) {
+                                width: 150px;
+                                height: auto;
+                                background-color: var(--bgwhiteColor);
+                                padding-left: 1.5em;
+                                box-shadow: 0 10px 30px hsl(0, 24%, 54%);
+                            }
+                            li {
+                                width: 100%;
+                                height: 100%;
+                                padding-block: 0.5em;
+                                margin-left: 0;
+                                
+                                .submenu-link {
+                                    width: 100%;
+                                    height: 100%;
+                                    font-weight: map-get($fontWeight, "light");
+                                    color: var(--verydarkBlue);
+                                    opacity: 0.8;
+                                    font-size: 1rem;
+
+                                    &:hover {
+                                        font-weight: map-get($fontWeight, "bold");
+                                        color: var(--verydarkBlackBlue);
+                                        opacity: 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.show {
+                display: block;
+            } 
+        }
+        .hamburger-btn {
+            cursor: pointer;
+            @include breakpoints(medium) {
+                display: none;
+            }
+            .menu-close {
+                display: none;
+            }
+        }
+    }
+    .banner-wrapper {
+        width: 100%;
+        
+        .banner-text {
+            text-align: center;
+            margin: 3.5em 2em 3em 2em;
+            
+            h1{
+                font-size: 2rem;
+                font-weight: map-get($fontWeight, "semiBold");
+                margin-bottom: 0;
+                max-width: 300px;
+                margin: auto;
+                @include breakpoints(medium) {
+                    max-width: 100%;
+                    font-size: clamp(1.875rem, 2.5vw + 1.5rem, 5rem);
+                }
+            }
+            p {
+                font-size: 1.1rem;
+                opacity: 0.6;
+                line-height: 1.2;
+            }
+        }
+        .calltoaction {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            font-weight: map-get($fontWeight, "bold");
+            
+            .tolearn {
+                background-color: transparent;
+                color: var(--textColor);
+                border: 1px solid var(--grayishBlue);
+                @include transitioneaseinout;
+
+                &:hover {
+                    color: var(--lightRed);
+                    background-color: var(--bgwhiteColor);
+                }
+            }
+        }
+    } 
+}
